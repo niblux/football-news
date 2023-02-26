@@ -13,8 +13,10 @@ export class ArticlesService {
 
   constructor(private http: HttpClient) { }
 
-  getArticles(): Observable<Article[]> {
-    return this.http.get<Articles>(this.apiUrl, {
+  getArticles(searchTerm?: string): Observable<Article[]> {
+    const url = `${this.apiUrl}${searchTerm ? `${searchTerm}` : 'sports'}`;
+
+    return this.http.get<Articles>(url, {
       headers: new HttpHeaders({
         'x-api-key': `${environment.apiKey}`
       })

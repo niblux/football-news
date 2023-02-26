@@ -5,6 +5,8 @@ import { ArticleComponent } from './components/article/article.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticlesService } from './articles.service';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,11 +16,13 @@ import { ArticlesService } from './articles.service';
   declarations: [
     ArticlesComponent,
     ArticleComponent,
-    FiltersComponent
+    FiltersComponent,
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [ArticlesComponent],
   providers: [ArticlesService]

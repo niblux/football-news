@@ -16,23 +16,18 @@ export class ArticlesComponent {
     this.filteredArticles = [];
   }
 
-  makeRequest() {
-    this.articlesService.getArticles().subscribe(articles => {
-      console.log('articles:', articles)
-      this.articles = articles;
-      this.filteredArticles = articles;
-    });
-  }
-
   ngOnInit() {
     this.articlesService.getArticles().subscribe(articles => {
       console.log('articles:', articles)
       this.articles = articles;
-      this.filteredArticles = articles;
     });
   }
 
   onFilterChanged(filters: any) {
     // TODO: defines filters interface
+  }
+
+  onSearchNews(articles: Article[]) {
+    this.articles = articles;
   }
 }

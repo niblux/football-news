@@ -1,10 +1,12 @@
-<h2>Articles</h2>
-
-<div *ngIf="articles.length > 0">
-  <ul>
-    <li *ngFor="let article of articles">
-      <app-article [article]="article"></app-article>
-    </li>
-  </ul>
+<div class="container">
+  <h2>Articles</h2>
+  <app-search-bar (articles)="onSearchNews($event)"></app-search-bar>
+  <div *ngIf="articles.length > 0">
+    <ul>
+      <li *ngFor="let article of articles">
+        <app-article [article]="article"></app-article>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="articles.length === 0">No articles found.</div>
 </div>
-<div *ngIf="articles.length === 0">No articles found.</div>
