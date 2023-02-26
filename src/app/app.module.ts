@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ArticlesModule } from './articles-dashboard/articles.module';
 import { ArticleComponent } from './articles-dashboard/components/article/article.component';
 import { FiltersComponent } from './articles-dashboard/components/filters/filters.component';
 import { ArticlesComponent } from './articles-dashboard/containers/articles/articles.component';
@@ -13,15 +14,12 @@ import { ArticlesComponent } from './articles-dashboard/containers/articles/arti
 @NgModule({
   declarations: [
     AppComponent,
-    ArticlesComponent,
-    ArticleComponent,
-    FiltersComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    HttpClientModule,
     AppRoutingModule,
+    ArticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
