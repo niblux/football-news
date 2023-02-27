@@ -1,7 +1,16 @@
 <div class="container">
   <h2>Articles</h2>
-  <app-search-bar (articles)="onSearchNews($event)"></app-search-bar>
-  <div *ngIf="articles.length > 0">
+
+  <div class="filters">
+    <app-search-bar (searchTerm)="onSearchNews($event)"></app-search-bar>
+
+    <app-filters
+      (filtersChanged)="onFilterChanged($event)"
+      [categories]="categories"
+    ></app-filters>
+  </div>
+
+  <div *ngIf="articles$ | async as articles">
     <ul>
       <li *ngFor="let article of articles">
         <app-article [article]="article"></app-article>

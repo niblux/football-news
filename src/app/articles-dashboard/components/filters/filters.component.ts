@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-filters',
@@ -6,18 +7,21 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent {
-  categories = ['Sports', 'Politics', 'Entertainment']; // example categories
-  @Output() filterChanged = new EventEmitter<any>();
+  @Input() categories: string[] = [];
+  @Output() filtersChanged = new EventEmitter();
 
-  onCategoryChange(category:any) {
-    this.filterChanged.emit({ category });
+  filterForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.filterForm = this.fb.group({
+      categories: [[]],
+      startDate: [''],
+      endDate: ['']
+    });
   }
 
-  onStartDateChange(startDate: string) {
-    this.filterChanged.emit({ startDate });
-  }
-
-  onEndDateChange(endDate: string) {
-    this.filterChanged.emit({ endDate });
+  onSubmit() {
+    console.log('submission', this.filterForm.value)
+    this.filtersChanged.emit(this.filterForm.value);
   }
 }

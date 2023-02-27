@@ -1,8 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
-import { ArticlesService } from '../../articles.service';
-import { Article } from '../../models/article.interface';
+import { debounceTime, distinctUntilChanged, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-bar',
@@ -11,24 +9,21 @@ import { Article } from '../../models/article.interface';
 })
 
 export class SearchBarComponent {
-  @Output() articles = new EventEmitter<Article[]>();
+  @Output() searchTerm = new EventEmitter<Observable<string>>();
 
-  searchTerm: FormControl;
+  searchControl: FormControl;
 
-
-  constructor(private articlesService: ArticlesService) {
-    this.searchTerm = new FormControl();
+  constructor() {
+    this.searchControl = new FormControl();
   }
 
   onSearchTerm(): void {
-    this.searchTerm.valueChanges.pipe(
+    const search$ = this.searchControl.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap((searchTerm: string) => {
-        return this.articlesService.getArticles(searchTerm)
-      })
-    ).subscribe((articles: Article[]) => {
-      this.articles.emit(articles);
-    });
+      map((searchTerm: string) => searchTerm)
+    )
+
+    this.searchTerm.emit(search$);
   }
 }
