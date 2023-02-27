@@ -10,12 +10,13 @@
     ></app-filters>
   </div>
 
-  <div *ngIf="articles$ | async as articles">
+  <div *ngIf="articles$ | async as articles; else loading">
     <ul>
       <li *ngFor="let article of articles">
         <app-article [article]="article"></app-article>
       </li>
     </ul>
+    <div *ngIf="articles.length === 0">No articles found.</div>
   </div>
-  <div *ngIf="articles.length === 0">No articles found.</div>
+  <ng-template #loading> Loading articles... </ng-template>
 </div>
