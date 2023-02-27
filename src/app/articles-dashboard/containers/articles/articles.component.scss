@@ -1,7 +1,20 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.6rem;
+    padding: 10px;
+    margin: 10px;
+    border: solid 1px #e9ecef;
+    border-radius: 8px;
+    // -webkit-box-shadow: 0px 0px 10px 0px rgba(171, 171, 171, 1);
+    // -moz-box-shadow: 0px 0px 10px 0px rgba(171, 171, 171, 1);
+    box-shadow: 0px 0px 10px -3px rgba(171, 171, 171, 1);
+
     h2 {
-        margin-left: 30px;
+        // margin-left: 30px;
     }
+
 }
 
 ul {
@@ -20,6 +33,20 @@ ul {
     }
 }
 
-.filters {
-    display: flex;
+.filters-container {
+    border: solid 1px #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px -3px rgba(171, 171, 171, 1);
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.6rem;
+
+    .filters {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            // margin-left: 30px;
+        }
+    }
 }

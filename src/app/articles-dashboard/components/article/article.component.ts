@@ -9,4 +9,10 @@ import { Article } from '../../models/article.interface';
 export class ArticleComponent {
   @Input()
   article!: Article;
+
+  @Input() imageUrl = `https://picsum.photos/seed/${this.article?.source}/254/145`
+
+  constructor() {
+
+  }
 }

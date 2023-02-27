@@ -21,7 +21,6 @@ export class FiltersComponent {
   }
 
   onSubmit() {
-    console.log('submission', this.filterForm.value)
     this.filtersChanged.emit(this.filterForm.value);
   }
 }

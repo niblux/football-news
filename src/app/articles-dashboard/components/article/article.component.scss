@@ -1,6 +1,13 @@
 .article-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
+    gap: 10px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-height: 300px;
+        object-position: 50% 26%;
+    }
 }

@@ -104,3 +104,4 @@ dist
 # Environment Files
 src/environments/
 .gitignore
+.vscode/settings.json

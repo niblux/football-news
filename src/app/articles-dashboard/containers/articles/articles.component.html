@@ -1,7 +1,6 @@
-<div class="container">
-  <h2>Articles</h2>
-
+<div class="filters-container">
   <div class="filters">
+    <h2>Filters</h2>
     <app-search-bar (searchTerm)="onSearchNews($event)"></app-search-bar>
 
     <app-filters
@@ -9,6 +8,10 @@
       [categories]="categories"
     ></app-filters>
   </div>
+</div>
+
+<div class="container">
+  <h2>Articles</h2>
 
   <div *ngIf="articles$ | async as articles; else loading">
     <ul>
@@ -16,7 +19,8 @@
         <app-article [article]="article"></app-article>
       </li>
     </ul>
-    <div *ngIf="articles.length === 0">No articles found.</div>
   </div>
+
+  <div *ngIf="!(articles$ | async)?.length">No articles found.</div>
   <ng-template #loading> Loading articles... </ng-template>
 </div>

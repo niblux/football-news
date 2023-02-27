@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    width: 100%;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    /* 
+    Setting base font to 10px makes it easier to calculate px vs rem
+    ie: 21px = 2.1rem : 2.1 * 10 = 21px; 
+    */
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito';
+}
+
+input,
+select {
+    padding: 10px;
+    border: solid 1px #efefef;
+    border-radius: 5px;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('./assets/fonts/NunitoSans-Regular.ttf');
+}

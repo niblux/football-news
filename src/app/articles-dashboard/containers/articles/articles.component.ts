@@ -28,6 +28,7 @@ export class ArticlesComponent {
       "sports",
       "technology"
     ]
+
     this.searchTerm = '';
     this.articles$ = this.loadArticles();
   }
