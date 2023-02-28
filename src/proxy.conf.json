@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://newsapi.org/v2/everything?",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}
