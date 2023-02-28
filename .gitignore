@@ -102,6 +102,5 @@ dist
 .DS_Store
 
 # Environment Files
-src/environments/
 .gitignore
 .vscode/settings.json
