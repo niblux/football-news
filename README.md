@@ -1,6 +1,4 @@
-## PROJECT_NAME
-
-News App
+## New App
 
 ## Proposed Solution
 
