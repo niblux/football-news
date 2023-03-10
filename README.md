@@ -1,4 +1,4 @@
-## New App
+## News App
 
 ## Proposed Solution
 
