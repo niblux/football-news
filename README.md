@@ -1,4 +1,4 @@
-## News App
+## News App - Grid Layout (TBC)
 
 ## Proposed Solution
 
